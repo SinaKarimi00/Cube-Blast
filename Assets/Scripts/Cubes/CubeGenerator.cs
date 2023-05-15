@@ -22,13 +22,12 @@ namespace BlastCube.Cubes
 
         private void RecordCubeData(CubeData baseCubeData)
         {
-            baseCubeData.CubeGameObject = cubeComponent.gameObject;
             baseCubeData.Id = CubesDataHandler.GetId();
             cubeComponent.CubeData = baseCubeData;
             CheckValue(cubeComponent.CubeData);
             ColorCubeHandler colorCubeHandler = new ColorCubeHandler();
-            colorCubeHandler.SetColor(colorCubeHandler.CalculateColor(cubeComponent.CubeData.CubeValue),cubeComponent.CubeData.CubeGameObject);
-            CubesDataHandler.SaveCubeData(cubeComponent.CubeData);
+            colorCubeHandler.SetColor(colorCubeHandler.CalculateColor(cubeComponent.CubeData.CubeValue),cubeComponent.gameObject);
+            CubesDataHandler.SaveCubeData(cubeComponent);
         }
 
         private void CheckValue(CubeData cubeData)

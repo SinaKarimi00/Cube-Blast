@@ -26,7 +26,7 @@ namespace BlastCube.Player
         private void InitializeCube()
         {
             CubeInitialization cubeInitialization = new CubeInitialization();
-            GameObject cube = cubeInitialization.InitializeShootAbleCube(gameObject);
+            cubeInitialization.InitializeShootAbleCube(gameObject);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace BlastCube.Cubes
     public class CubesDataHandler
     {
         private static int id = 0;
-        public static readonly Dictionary<GameObject, int> GeneratedCubes = new Dictionary<GameObject, int>();
+        public static readonly List<Cube> GetGeneratedCubes = new List<Cube>();
         public static readonly List<int> ExistValues = new List<int>();
 
         public static int GetId()
@@ -15,12 +15,12 @@ namespace BlastCube.Cubes
             return id;
         }
 
-        public static void SaveCubeData(CubeData cubeData)
+        public static void SaveCubeData(Cube cube)
         {
             id++;
-            GeneratedCubes.Add(cubeData.CubeGameObject, cubeData.CubeValue);
-            if (!ExistValues.Contains(cubeData.CubeValue))
-                ExistValues.Add(cubeData.CubeValue);
+            GetGeneratedCubes.Add(cube);
+            if (!ExistValues.Contains(cube.CubeData.CubeValue))
+                ExistValues.Add(cube.CubeData.CubeValue);
         }
     }
 }

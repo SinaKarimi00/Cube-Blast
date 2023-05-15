@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 
 namespace BlastCube.Cubes
@@ -11,7 +10,7 @@ namespace BlastCube.Cubes
         [SerializeField] private CubeData cubeData;
         [SerializeField] private List<TextMeshPro> sideTexts;
         [SerializeField] private bool canPass;
-        [SerializeField] private GameObject cubeTrackEffect;
+        [SerializeField] private bool collided;
 
         public List<TextMeshPro> SideTexts => sideTexts;
 
@@ -25,6 +24,12 @@ namespace BlastCube.Cubes
             set => canPass = value;
             get => canPass;
         }
-        public GameObject CubeTrackEffect => cubeTrackEffect;
+        public bool Collided
+        {
+            set => collided = value;
+            get => collided;
+        }
+        public Vector3 CubePosition => transform.position;
+        public Transform ParentTransform => transform.parent;
     }
 }
