@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Style/button_menu.uss?fileID=7433441132597879392&amp;guid=629e33324ee217a458a4b0f6afe9e251&amp;type=3#button_menu" />
+    <ui:VisualElement style="flex-grow: 1; background-image: none;">
+        <ui:Button display-tooltip-when-elided="true" name="StartGameButton" style="flex-shrink: 100; flex-grow: 100; background-color: rgba(221, 204, 86, 0); color: rgb(255, 255, 255);">
+            <ui:IMGUIContainer name="TopContainer" style="flex-basis: 50%; flex-direction: row;">
+                <ui:IMGUIContainer name="LeftContainer" style="flex-shrink: 33; flex-grow: 33; flex-basis: 50%;">
+                    <ui:Button text="Button" display-tooltip-when-elided="true" name="SettingButton" class="but button_menu" style="margin-left: 15px; margin-right: 15px; margin-top: 15px; margin-bottom: 15px; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px;" />
+                    <ui:IMGUIContainer name="PowerUpContainer" style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">
+                        <ui:Button text="Button" display-tooltip-when-elided="true" name="BombButton" class="button_menu button_PowerUp" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" />
+                        <ui:Button text="Button" display-tooltip-when-elided="true" name="HeartButton" class="button_menu button_PowerUp" style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" />
+                    </ui:IMGUIContainer>
+                </ui:IMGUIContainer>
+                <ui:IMGUIContainer name="MiddleContainer" style="flex-shrink: 33; flex-grow: 33; flex-basis: 50%;">
+                    <ui:IMGUIContainer name="Container" style="flex-shrink: 100; flex-grow: 100; flex-direction: row; align-items: flex-start;">
+                        <ui:Label text="Label" display-tooltip-when-elided="true" style="white-space: nowrap; -unity-text-align: middle-center; left: 50%; top: 0; right: 50%; bottom: 0;" />
+                    </ui:IMGUIContainer>
+                </ui:IMGUIContainer>
+                <ui:IMGUIContainer name="RightContainer" style="flex-shrink: 33; flex-grow: 33; flex-basis: 50%;">
+                    <ui:Button text="Button" display-tooltip-when-elided="true" name="RemoveAddsButton" class="button_PowerUp" />
+                </ui:IMGUIContainer>
+            </ui:IMGUIContainer>
+            <ui:IMGUIContainer name="BottomContainer" style="flex-basis: 50%; flex-direction: row; align-items: center; justify-content: center;">
+                <ui:Label text="Move to aim" display-tooltip-when-elided="true" name="GuidanceLabel" style="-unity-text-align: middle-center; flex-direction: column-reverse; justify-content: flex-start; left: 0; bottom: auto; right: 0; top: auto; font-size: 35px; color: rgb(255, 255, 255); -unity-font-style: bold;" />
+            </ui:IMGUIContainer>
+        </ui:Button>
+    </ui:VisualElement>
+</ui:UXML>
