@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,13 @@ namespace BlastCube.Cubes
         [SerializeField] private List<TextMeshPro> sideTexts;
         [SerializeField] private bool canPass;
         [SerializeField] private bool collided;
+        [SerializeField] private Rigidbody cubeRigidbody;
+        [SerializeField] private TrailRenderer trail;
+
+        private void Start()
+        {
+            cubeRigidbody = GetComponent<Rigidbody>();
+        }
 
         public List<TextMeshPro> SideTexts => sideTexts;
 
@@ -29,6 +37,10 @@ namespace BlastCube.Cubes
             set => collided = value;
             get => collided;
         }
+
+        public Rigidbody GetCubeRigidbody() => cubeRigidbody;
+        public TrailRenderer GetTrail() => trail;
+
         public Vector3 CubePosition => transform.position;
         public Transform ParentTransform => transform.parent;
     }

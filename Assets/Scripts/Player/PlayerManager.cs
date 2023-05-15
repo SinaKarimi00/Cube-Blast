@@ -27,8 +27,8 @@ namespace BlastCube.Player
         {
             if (Input.GetMouseButton(0))
                 playerRequirementsFactory.CreateMoveAbility(playerGameObject).Move(Destination());
-            else if (Input.GetMouseButtonUp(0) && playerCollision.CubeRigidBody)
-                playerRequirementsFactory.CreateShootAbility().Shoot(playerCollision.CubeRigidBody);
+            else if (Input.GetMouseButtonUp(0) && playerCollision.CubeComponent)
+                playerRequirementsFactory.CreateShootAbility().Shoot(playerCollision.CubeComponent);
 
             Vector3 Destination() => playerRequirementsFactory.CreatePositionHandler().GetCurrentPosition();
         }

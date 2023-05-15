@@ -38,9 +38,7 @@ namespace BlastCube.GameMind
             }
 
             else
-            {
                 shotCube.Collided = true;
-            }
 
             bool ValueCheck() => onCrashEvent.shotCube.CubeData.CubeValue == onCrashEvent.collisionCube.CubeData.CubeValue;
 

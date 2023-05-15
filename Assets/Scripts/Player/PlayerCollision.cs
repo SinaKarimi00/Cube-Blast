@@ -7,20 +7,20 @@ namespace BlastCube.Player
 
     public class PlayerCollision : MonoBehaviour
     {
-        [SerializeField] private Rigidbody cubeRigidBody;
-        public Rigidbody CubeRigidBody => cubeRigidBody;
+        [SerializeField] private Cube cubeComponent;
+        public Cube CubeComponent => cubeComponent;
         private readonly float waiteTime = 0.5f;
 
         private void OnTriggerExit(Collider other)
         {
-            cubeRigidBody = null;
+            cubeComponent = null;
             Invoke(nameof(InitializeCube), waiteTime);
         }
 
         private void OnTriggerStay(Collider other)
         {
-            if (cubeRigidBody == null)
-                cubeRigidBody = other.GetComponent<Rigidbody>();
+            if (cubeComponent == null)
+                cubeComponent = other.GetComponent<Cube>();
         }
 
         private void InitializeCube()
