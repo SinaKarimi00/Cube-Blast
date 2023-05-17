@@ -26,7 +26,7 @@ namespace BlastCube.Level
         private void OnTriggerStay(Collider other)
         {
             Cube cube = other.GetComponent<Cube>() ? other.GetComponent<Cube>() : null;
-            if (cube != null && cube.Collided)
+            if (cube != null && cube.Collided && cube.CubeRigidbody.velocity.z <= 0f)
             {
                 EventManager eventManager = new EventManager();
                 eventManager.Propagate(new OnCubeCrossing());

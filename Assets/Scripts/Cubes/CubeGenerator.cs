@@ -8,7 +8,7 @@ namespace BlastCube.Cubes
     {
         private Cube cubeComponent;
 
-        public GameObject GenerateCube(GameObject cubeGameObject, CubeData baseCubeData, Transform parentTransform)
+        public Cube GenerateCube(GameObject cubeGameObject, CubeData baseCubeData, Transform parentTransform)
         {
             GameObject cubeObject = Object.Instantiate(cubeGameObject, baseCubeData.InitializeCubePosition, Quaternion.identity, parentTransform);
             cubeComponent = cubeObject.GetComponent<Cube>();
@@ -16,7 +16,7 @@ namespace BlastCube.Cubes
             RecordCubeData(baseCubeData);
             TextCubeHandler textCubeHandler = new TextCubeHandler();
             textCubeHandler.WriteValueOnCube(cubeComponent.SideTexts, cubeComponent.CubeData.CubeValue);
-            return cubeObject;
+            return cubeObject.GetComponent<Cube>();
         }
 
 

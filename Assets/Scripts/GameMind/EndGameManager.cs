@@ -13,9 +13,9 @@ namespace BlastCube.GameMind
             eventManager.Register(this);
         }
 
-        public void HandleEvent(IEvent crossingEvent)
+        public void HandleEvent(IEvent invokedEvent)
         {
-            if (crossingEvent is OnCubeCrossing)
+            if (invokedEvent is OnCubeCrossing)
             {
                 PopUpHandler popUpHandler = new PopUpHandler();
                 popUpHandler.CreatePopUp("EndGamePopUp");
