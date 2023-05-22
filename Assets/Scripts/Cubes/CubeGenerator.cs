@@ -8,7 +8,7 @@ namespace BlastCube.Cubes
     {
         private Cube cubeComponent;
 
-        public GameObject GenerateCube(GameObject cubeGameObject, CubeData baseCubeData, Transform parentTransform)
+        public Cube GenerateCube(GameObject cubeGameObject, CubeData baseCubeData, Transform parentTransform)
         {
             GameObject cubeObject = Object.Instantiate(cubeGameObject, baseCubeData.InitializeCubePosition, Quaternion.identity, parentTransform);
             cubeComponent = cubeObject.GetComponent<Cube>();
@@ -16,19 +16,18 @@ namespace BlastCube.Cubes
             RecordCubeData(baseCubeData);
             TextCubeHandler textCubeHandler = new TextCubeHandler();
             textCubeHandler.WriteValueOnCube(cubeComponent.SideTexts, cubeComponent.CubeData.CubeValue);
-            return cubeObject;
+            return cubeObject.GetComponent<Cube>();
         }
 
 
         private void RecordCubeData(CubeData baseCubeData)
         {
-            baseCubeData.CubeGameObject = cubeComponent.gameObject;
             baseCubeData.Id = CubesDataHandler.GetId();
             cubeComponent.CubeData = baseCubeData;
             CheckValue(cubeComponent.CubeData);
             ColorCubeHandler colorCubeHandler = new ColorCubeHandler();
-            colorCubeHandler.SetColor(colorCubeHandler.CalculateColor(cubeComponent.CubeData.CubeValue),cubeComponent.CubeData.CubeGameObject);
-            CubesDataHandler.SaveCubeData(cubeComponent.CubeData);
+            colorCubeHandler.SetColor(colorCubeHandler.CalculateColor(cubeComponent.CubeData.CubeValue),cubeComponent.gameObject);
+            CubesDataHandler.SaveCubeData(cubeComponent);
         }
 
         private void CheckValue(CubeData cubeData)

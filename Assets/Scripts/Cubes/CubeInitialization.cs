@@ -12,34 +12,33 @@ namespace BlastCube.Cubes
             cubePrefab = Resources.Load<GameObject>("cube");
         }
 
-        public GameObject InitializeMergedCube(CubeData shotCubeData, CubeData collisionCubeData)
+        public Cube InitializeMergedCube(Cube shotCube, Cube collisionCube)
         {
             CubeGenerator cubeGenerator = new CubeGenerator();
             CubeData mergedCubeData = new CubeData();
-            mergedCubeData.CubeValue = shotCubeData.CubeValue * 2;
+            mergedCubeData.CubeValue = shotCube.CubeData.CubeValue * 2;
             mergedCubeData.InitializeCubePosition = NewCubePosition();
             return cubeGenerator.GenerateCube(cubePrefab, mergedCubeData, GetParent());
 
             Vector3 NewCubePosition()
             {
-                if (shotCubeData.Id > collisionCubeData.Id)
-                    return collisionCubeData.CubeGameObject.transform.position;
+                if (shotCube.CubeData.Id > collisionCube.CubeData.Id)
+                    return collisionCube.CubePosition;
 
-                return shotCubeData.CubeGameObject.transform.position;
+                return shotCube.CubePosition;
             }
 
-            Transform GetParent() => collisionCubeData.CubeGameObject.transform.parent;
+            Transform GetParent() => collisionCube.ParentTransform;
         }
 
-        public GameObject InitializeShootAbleCube(GameObject cubeParentObject)
+        public void InitializeShootAbleCube(GameObject cubeParentObject)
         {
             CubeGenerator cubeGenerator = new CubeGenerator();
             CubeData cubeData = new CubeData();
             cubeData.InitializeCubePosition = CubePosition();
             Transform cubeParent = cubeParentObject.transform;
-            GameObject cube = cubeGenerator.GenerateCube(GetCubePrefab(), cubeData, cubeParent);
-            cube.GetComponent<Cube>().CanPass = true;
-            return cube;
+            Cube cube = cubeGenerator.GenerateCube(GetCubePrefab(), cubeData, cubeParent);
+            cube.CanPass = true;
 
             Vector3 CubePosition() => cubeParentObject.transform.position + new Vector3(0f, 0f, 1f);
             GameObject GetCubePrefab() => Resources.Load<GameObject>("cube");

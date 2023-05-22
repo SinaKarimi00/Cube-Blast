@@ -5,13 +5,13 @@ namespace BlastCube.Cubes
 {
     public class OnCrash : IEvent
     {
-        public readonly CubeData shotCubeData;
-        public readonly CubeData collisionCubeData;
+        public readonly Cube shotCube;
+        public readonly Cube collisionCube;
 
-        public OnCrash(CubeData shotCubeData, CubeData collisionCubeData)
+        public OnCrash(Cube shotCube, Cube collisionCube)
         {
-            this.shotCubeData = shotCubeData;
-            this.collisionCubeData = collisionCubeData;
+            this.shotCube = shotCube;
+            this.collisionCube = collisionCube;
         }
     }
 }

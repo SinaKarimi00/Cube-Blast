@@ -9,9 +9,10 @@ namespace BlastCube.Cubes
         public Vector3 GetRoute(int cubeValue, GameObject currentGameObject)
         {
             int targetValue = cubeValue;
-            GameObject destinationObject = CubesDataHandler.GeneratedCubes
-                                                           .Where(x => !x.Key.GetComponent<Cube>().CanPass && x.Key != currentGameObject)
-                                                           .FirstOrDefault(x => x.Value == targetValue).Key;
+            GameObject destinationObject = CubesDataHandler.GetGeneratedCubes
+                                                           .Where(x => !x.CanPass && x.gameObject != currentGameObject)
+                                                           .FirstOrDefault(x => x.CubeData.CubeValue == targetValue)
+                                                          ?.gameObject;
             if (destinationObject)
                 return destinationObject.transform.position;
 

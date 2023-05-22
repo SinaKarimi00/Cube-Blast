@@ -8,9 +8,10 @@ namespace BlastCube.Level
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<Cube>())
+            Cube cube = other.GetComponent<Cube>() ? other.GetComponent<Cube>() : null;
+
+            if (cube != null)
             {
-                Cube cube = other.GetComponent<Cube>();
                 if (cube.CanPass)
                     cube.CanPass = false;
 
@@ -19,6 +20,17 @@ namespace BlastCube.Level
                     EventManager eventManager = new EventManager();
                     eventManager.Propagate(new OnCubeCrossing());
                 }
+            }
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            Cube cube = other.GetComponent<Cube>() ? other.GetComponent<Cube>() : null;
+            if (cube != null && cube.Collided && cube.CubeRigidbody.velocity.z <= 0f)
+            {
+                EventManager eventManager = new EventManager();
+                eventManager.Propagate(new OnCubeCrossing());
+                cube.Collided = false;
             }
         }
     }
