@@ -10,6 +10,7 @@ namespace BlastCube.Cubes
         [SerializeField] private int cubeValue;
         [SerializeField] private int id;
         [SerializeField] private Vector3 initializeCubePosition;
+        [SerializeField] private Rigidbody cubeRigidbody;
 
         public int CubeValue
         {
@@ -28,5 +29,7 @@ namespace BlastCube.Cubes
             set => initializeCubePosition = value;
             get => initializeCubePosition;
         }
+
+        public Rigidbody CubeRigidbody => cubeRigidbody;
     }
 }
