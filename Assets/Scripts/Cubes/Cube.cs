@@ -16,6 +16,7 @@ namespace BlastCube.Cubes
         [SerializeField] private TrailRenderer trail;
         [SerializeField] private GameObject cubeTrackEffect;
         [SerializeField] private LineRenderer cubeLineRenderer;
+
         private void Awake()
         {
             cubeLineRenderer = GetComponent<LineRenderer>();
@@ -24,6 +25,7 @@ namespace BlastCube.Cubes
         
 
         public List<TextMeshPro> SideTexts => sideTexts;
+
 
         public CubeData CubeData
         {
@@ -40,10 +42,9 @@ namespace BlastCube.Cubes
             set => collided = value;
             get => collided;
         }
-
-        public Rigidbody GetCubeRigidbody() => cubeRigidbody;
         public TrailRenderer GetTrail() => trail;
-
+        public Rigidbody GetCubeRigidbody() => cubeRigidbody;
+        public Rigidbody CubeRigidbody => cubeRigidbody;
         public Vector3 CubePosition => transform.position;
         public Transform ParentTransform => transform.parent;
         public LineRenderer CubeLineRenderer => cubeLineRenderer;

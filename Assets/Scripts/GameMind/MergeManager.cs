@@ -17,23 +17,22 @@ namespace BlastCube.GameMind
         {
         }
 
-        public void HandleEvent(IEvent generalEvent)
+        public void HandleEvent(IEvent invokedEvent)
         {
-            if (!(generalEvent is OnCrash onCrashEvent)) return;
+            if (!(invokedEvent is OnCrash onCrashEvent)) return;
 
             Cube shotCube = onCrashEvent.shotCube;
-            Cube collisionCube = onCrashEvent.shotCube;
+            Cube collisionCube = onCrashEvent.collisionCube;
             if (ValueCheck() && ExistenceCheck(shotCube)
                              && ExistenceCheck(collisionCube))
             {
                 CubeInitialization cubeInitialization = new CubeInitialization();
-                GameObject mergedCube = cubeInitialization.InitializeMergedCube(shotCube, collisionCube);
+                Cube mergedCube = cubeInitialization.InitializeMergedCube(shotCube, collisionCube);
                 CubeRouting cubeRouting = new CubeRouting();
-                Rigidbody rigidbody = mergedCube.GetComponent<Rigidbody>();
-                mergedCube.GetComponent<Cube>().Collided = true;
+                mergedCube.Collided = true;
                 CubeMovement cubeMovement = new CubeMovement();
-                Vector3 destination = cubeRouting.GetRoute(onCrashEvent.shotCube.CubeData.CubeValue * 2, mergedCube);
-                cubeMovement.Move(rigidbody, destination);
+                Vector3 destination = cubeRouting.GetRoute(onCrashEvent.shotCube.CubeData.CubeValue * 2, mergedCube.gameObject);
+                cubeMovement.Move(mergedCube.CubeRigidbody, destination);
                 RemoveMergedCubes();
             }
 
