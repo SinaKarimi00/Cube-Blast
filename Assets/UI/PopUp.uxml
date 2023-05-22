@@ -1,20 +1,20 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.49); flex-direction: column; width: 100%; height: 100%; flex-basis: 100%;">
-        <ui:IMGUIContainer name="TitleContainer" style="flex-basis: 15%; background-color: rgb(188, 136, 0); -unity-background-scale-mode: scale-to-fit; transition-property: all; transition-duration: 0s; transition-timing-function: ease; transition-delay: 0s; flex-grow: 1;">
+        <ui:IMGUIContainer name="TitleContainer" style="flex-basis: 15%; background-color: rgba(255, 184, 0, 0); -unity-background-scale-mode: scale-to-fit; transition-property: all; transition-duration: 0s; transition-timing-function: ease; transition-delay: 0s; flex-grow: 1;">
             <ui:Label text="Congratulations!" display-tooltip-when-elided="true" name="CongratulationsLabel" style="width: 100%; height: 100%; -unity-text-align: middle-center; font-size: 20px; -unity-font-style: bold; color: rgb(255, 255, 255); -unity-background-scale-mode: scale-to-fit; flex-basis: auto; flex-shrink: 1;" />
         </ui:IMGUIContainer>
-        <ui:IMGUIContainer name="CupContainer" style="flex-basis: 20%; flex-direction: row; align-items: center; justify-content: center;">
-            <ui:IMGUIContainer style="background-image: url(&apos;project://database/Assets/Sprite/Champion-Cup-Illustration-by-herbanuts%20(1).png?fileID=2800000&amp;guid=15152c1ff12c50645bcef549a588c740&amp;type=3#Champion-Cup-Illustration-by-herbanuts (1)&apos;); width: 30%; height: 70%; flex-grow: 0; flex-basis: 20%; -unity-background-scale-mode: scale-to-fit;" />
+        <ui:IMGUIContainer name="CupContainer" style="flex-basis: 30%; flex-direction: row; align-items: center; justify-content: center;">
+            <ui:IMGUIContainer style="background-image: url(&apos;project://database/Assets/Sprite/Champion-Cup-Illustration-by-herbanuts%20(1).png?fileID=2800000&amp;guid=15152c1ff12c50645bcef549a588c740&amp;type=3#Champion-Cup-Illustration-by-herbanuts (1)&apos;); width: 100%; height: 100%; flex-grow: 0; flex-basis: 100%; -unity-background-scale-mode: scale-to-fit;" />
         </ui:IMGUIContainer>
-        <ui:IMGUIContainer name="ScoreTitle" style="flex-basis: 5%;">
-            <ui:Label text="---------- Score ----------" display-tooltip-when-elided="true" name="ScoreLabel" style="-unity-text-align: middle-center; -unity-font-style: bold; color: rgb(255, 255, 255);" />
+        <ui:IMGUIContainer name="ScoreTitle" style="flex-basis: 5%; margin-top: 5px;">
+            <ui:Label text="Score " display-tooltip-when-elided="true" name="ScoreLabel" style="-unity-text-align: middle-center; -unity-font-style: bold; color: rgb(255, 255, 255); white-space: nowrap; margin-top: 10px; margin-bottom: 10px; font-size: 20px;" />
         </ui:IMGUIContainer>
         <ui:IMGUIContainer name="ScoreContainer" style="flex-basis: 20%;">
             <ui:IMGUIContainer name="NewScoreContainer" style="flex-basis: 50%;" />
             <ui:IMGUIContainer name="HighestCubeContainer" style="flex-basis: 50%;" />
         </ui:IMGUIContainer>
-        <ui:IMGUIContainer name="GamePlayDataContainer" style="flex-basis: 20%;" />
-        <ui:IMGUIContainer name="ButtonContainer" style="flex-basis: 20%; align-items: center; padding-bottom: 10px;">
+        <ui:IMGUIContainer name="GamePlayDataContainer" style="flex-basis: 15%;" />
+        <ui:IMGUIContainer name="ButtonContainer" style="flex-basis: 20%; align-items: center; padding-bottom: 10px; padding-top: 10px;">
             <ui:Button text="KeepPlaying" display-tooltip-when-elided="true" name="KeepPlayingButton" enable-rich-text="true" style="flex-basis: 50%; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; background-color: rgb(207, 161, 0); -unity-font-style: bold; color: rgb(255, 255, 255); width: 50%;" />
             <ui:Button text="Reset" display-tooltip-when-elided="true" name="ResetButton" style="flex-basis: 50%; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px; background-color: rgb(25, 52, 164); -unity-font-style: bold; color: rgb(255, 255, 255); width: 50%;" />
         </ui:IMGUIContainer>
