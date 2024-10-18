@@ -1,3 +1,4 @@
+using BlastCube.Cubes;
 using UnityEngine;
 
 
@@ -5,11 +6,12 @@ namespace BlastCube.Player
 {
     public class ShootHandler
     {
-        public void Shoot(Rigidbody cubeRigidbody)
+        public void Shoot(Cube cube)
         {
             int power = 50;
-            cubeRigidbody.AddForce(Vector3.forward * power);
-            cubeRigidbody.transform.SetParent(cubeRigidbody.transform.parent.parent);
+            cube.GetCubeRigidbody().AddForce(Vector3.forward * power);
+            cube.transform.SetParent(cube.transform.parent.parent);
+            cube.GetTrail().enabled = true;
         }
     }
 }
